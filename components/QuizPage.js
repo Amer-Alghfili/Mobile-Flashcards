@@ -118,10 +118,24 @@ export default class extends Component {
       );
     }
     return (
-      <View>
-        <Text>{`${noOfAnsweredQuestions + 1}/${noQuestions}`}</Text>
+      <View style={styles.container}>
+        <Text style={styles.text}>{`${noOfAnsweredQuestions +
+          1}/${noQuestions}`}</Text>
         {content}
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignContent: "center",
+    margin: 32
+  },
+  text: {
+    textAlign: "center",
+    fontWeight: "bold"
+  }
+});

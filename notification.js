@@ -23,12 +23,12 @@ export const setLocalNotification = async () => {
     if (status === "granted") {
       Notifications.cancelAllScheduledNotificationsAsync();
       let tommorow = new Date();
-      tommorow.setDate(tommorow.getDate());
-      tommorow.setHours(5);
-      tommorow.setMinutes(50);
+      tommorow.setDate(tommorow.getDate() + 1);
+      tommorow.setHours(12);
+      tommorow.setMinutes(0);
       Notifications.scheduleLocalNotificationAsync(createNotification(), {
         time: tommorow,
-        repeat: "minute"
+        repeat: "day"
       });
       AsyncStorage.setItem("notification", JSON.stringify(true));
     }
